@@ -2,6 +2,8 @@
 #include <matriz.h>
 #include <thread>
 
+/**Alunos: Leonardo Perales (C.C.), Pablo Alcantara (C.C.) e Vivian Santos (C.C.)**/
+
 using namespace std;
 
 void exec(Matriz m, int i);

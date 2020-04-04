@@ -1,6 +1,8 @@
 #ifndef MATRIZ_H
 #define MATRIZ_H
 
+/**Alunos: Leonardo Perales (C.C.), Pablo Alcantara (C.C.) e Vivian Santos (C.C.)**/
+
 class Matriz
 {
     public:

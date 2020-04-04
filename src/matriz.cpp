@@ -2,6 +2,8 @@
 #include <iostream>
 #include <stdlib.h>
 
+/**Alunos: Leonardo Perales (C.C.), Pablo Alcantara (C.C.) e Vivian Santos (C.C.)**/
+
 using namespace std;
 
 Matriz::Matriz(int n)
@@ -72,14 +74,11 @@ void Matriz::imprimirMatriz()
 void Matriz::multiplica(int linha)
 {
     int i, j;
-    //cout << "\n\n\nLinha: " << linha << "\n";
     for(i = 0; i < this->tamanho; i++)
     {
         for(j = 0; j < this->tamanho; j++)
         {
             this->m3[linha][i] += (this->m1[linha][j] * this->m2[j][i]);
-            //cout << "--> m3[" << linha << "][" << i << "] += m1[" << linha << "][" << j << "] * m2 [" << j << "][" << i << "])\n";
-            //cout << this->m3[linha][i] << " += (" << this->m1[linha][j] << " * " << this->m2[j][i] << ")\n\n";
         }
     }
 }
