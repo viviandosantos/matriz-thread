@@ -2,6 +2,7 @@
 #include <matriz.h>
 #include <vetor.h>
 #include<omp.h>
+#include <time.h>
 
 /**Alunos: Leonardo Perales (C.C.), Pablo Alcantara (C.C.) e Vivian Santos (C.C.)**/
 
@@ -52,6 +53,8 @@ void executarMatrizes()
     Matriz mat(n);
     mat.preencherMatriz();
     cout << "\n";
+    clock_t Ticks[2];
+    Ticks[0] = clock();
 
     #pragma omp parallel num_threads(n)
     {
@@ -64,7 +67,12 @@ void executarMatrizes()
         }
     }
 
+    Ticks[1] = clock();
+
     mat.imprimirMatriz();
+
+    double Tempo = (Ticks[1] - Ticks[0]) * 1000.0 / CLOCKS_PER_SEC;
+    printf("\n\nTempo gasto: %g ms. \n\n", Tempo);
 }
 
 void executarCombinacoes()
@@ -76,6 +84,11 @@ void executarCombinacoes()
     Vetor vetor(n);
     vetor.preencherVetor();
     printf("\nCombinacao (%d, %d)\nTotal de combinacoes: %d\n\n", n, vetor.metade, vetor.tamanhoResul);
+    clock_t Ticks[2];
+    Ticks[0] = clock();
     vetor.gerarCombinacao(n);
+    Ticks[1] = clock();
     vetor.imprimirVetor();
+    double Tempo = (Ticks[1] - Ticks[0]) * 1000.0 / CLOCKS_PER_SEC;
+    printf("Tempo gasto: %g ms. \n\n", Tempo);
 }
