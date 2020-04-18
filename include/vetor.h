@@ -8,7 +8,7 @@ class Vetor
         Vetor(int n);
 
         int tamanhoResul;
-        //int ** resul;
+        int ** resul;
         int tamanho;
         int metade;
         int * v;

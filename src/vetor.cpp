@@ -13,8 +13,8 @@ Vetor::Vetor(int n)
     this->metade = n / 2;
     this->tamanhoResul = calcularTotalCombinacoes();
 
-    /*v = new int[n];
-    resul = new int * [this->tamanhoResul];
+    v = new int[n];
+    /*resul = new int * [this->tamanhoResul];
 
     for(int i = 0; i < tamanhoResul; ++i) {
         resul[i] = new int[metade];
