@@ -36,12 +36,11 @@
 			<Add directory="include" />
 		</Compiler>
 		<Unit filename="include/matriz.h" />
+		<Unit filename="include/vetor.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/matriz.cpp" />
+		<Unit filename="src/vetor.cpp" />
 		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
 			<lib_finder disable_auto="1" />
 		</Extensions>
 	</Project>

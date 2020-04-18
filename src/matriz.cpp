@@ -44,7 +44,7 @@ void Matriz::imprimirMatriz()
         cout << "" << endl;
         for(j = 0; j < this->tamanho; j++)
         {
-            cout << this->m1[i][j] <<  " ";
+            cout << this->m1[i][j] <<  "\t";
         }
     }
 
@@ -54,7 +54,7 @@ void Matriz::imprimirMatriz()
         cout << "" << endl;
         for(j = 0; j < this->tamanho; j++)
         {
-            cout << this->m2[i][j] <<  " ";
+            cout << this->m2[i][j] <<  "\t";
         }
     }
 
@@ -64,7 +64,7 @@ void Matriz::imprimirMatriz()
         cout << "" << endl;
         for(j = 0; j < this->tamanho; j++)
         {
-            cout << this->m3[i][j] <<  " ";
+            cout << this->m3[i][j] <<  "\t";
         }
     }
 
