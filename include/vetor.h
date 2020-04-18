@@ -1,6 +1,7 @@
 #ifndef VETOR_H
 #define VETOR_H
 
+/**Alunos: Leonardo Perales (C.C.), Pablo Alcantara (C.C.) e Vivian Santos (C.C.)**/
 
 class Vetor
 {
@@ -12,10 +13,12 @@ class Vetor
         int tamanho;
         int metade;
         int * v;
+        int x;
+        int y;
 
         void preencherVetor();
         void imprimirVetor();
-        void gerarCombinacao(int arr[], int n, int r);
+        void gerarCombinacao(int n);
         int calcularTotalCombinacoes();
         virtual ~Vetor();
 
@@ -23,7 +26,7 @@ class Vetor
 
     private:
         int fatorial(int n);
-        void combinacao(int arr[], int data[], int start, int end, int index, int r);
+        void combinacao(int data[], int start, int end, int index);
 };
 
 #endif // VETOR_H

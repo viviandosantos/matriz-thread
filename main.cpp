@@ -69,15 +69,13 @@ void executarMatrizes()
 
 void executarCombinacoes()
 {
-    int tid = 0, n = 0;
+    int n = 0;
     cout << "Digite o valor de N: ";
     cin >> n;
 
     Vetor vetor(n);
     vetor.preencherVetor();
-    cout << "\nTotal de combinacoes: " << vetor.tamanhoResul << endl;
-    #pragma omp parallel
-    {
-        vetor.gerarCombinacao(vetor.v, n, vetor.metade);
-    }
+    printf("\nCombinacao (%d, %d)\nTotal de combinacoes: %d\n\n", n, vetor.metade, vetor.tamanhoResul);
+    vetor.gerarCombinacao(n);
+    vetor.imprimirVetor();
 }
