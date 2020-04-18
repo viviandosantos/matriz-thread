@@ -8,16 +8,14 @@ class Vetor
         Vetor(int n);
 
         int tamanhoResul;
-        int ** resul;
+        //int ** resul;
         int tamanho;
-        int linhaResul;
-        int colunaResul;
         int metade;
         int * v;
 
         void preencherVetor();
         void imprimirVetor();
-        void gerarCombinacoes(int i, int tid);
+        void gerarCombinacao(int arr[], int n, int r);
         int calcularTotalCombinacoes();
         virtual ~Vetor();
 
@@ -25,6 +23,7 @@ class Vetor
 
     private:
         int fatorial(int n);
+        void combinacao(int arr[], int data[], int start, int end, int index, int r);
 };
 
 #endif // VETOR_H

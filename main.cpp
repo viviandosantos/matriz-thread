@@ -76,35 +76,8 @@ void executarCombinacoes()
     Vetor vetor(n);
     vetor.preencherVetor();
     cout << "\nTotal de combinacoes: " << vetor.tamanhoResul << endl;
-    cout << "\nMetade: " << vetor.metade << endl;
-    //#pragma omp parallel     {
-    tid=omp_get_thread_num();
-    int x = 0, y;
-    for (int i = 0; i < n; i++)
+    #pragma omp parallel
     {
-        vetor.resul[x][0] = vetor.v[i];
-        cout << "\nx: " << x << endl;
-        cout << "\nResul[x][0]: " << vetor.resul[x][0] << endl;
-        y = 1;
-        for (int j = i + 1; j < n; j++)
-        {
-            vetor.resul[x][y] = vetor.v[j];
-            cout << "\n\ty: " << y << endl;
-            cout << "\n\tResul[x][y]: " << vetor.resul[x][y] << endl;
-            if (y == vetor.metade - 1 && (x + 1) < vetor.tamanhoResul)
-            {
-                x++;
-                vetor.resul[x][0] = vetor.v[i];
-                cout << "\ty chegou na metade! x: " << x << endl;
-            }
-            else
-            {
-                y++;
-                cout << "\ty nao chegou ainda! y: " << y << endl;
-            }
-        }
-        //}
+        vetor.gerarCombinacao(vetor.v, n, vetor.metade);
     }
-
-    vetor.imprimirVetor();
 }

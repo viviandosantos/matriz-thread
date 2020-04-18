@@ -12,37 +12,35 @@ Vetor::Vetor(int n)
     this->tamanho = n;
     this->metade = n / 2;
     this->tamanhoResul = calcularTotalCombinacoes();
-    this->linhaResul = 0;
-    this->colunaResul = 0;
 
-    v = new int[n];
+    /*v = new int[n];
     resul = new int * [this->tamanhoResul];
 
     for(int i = 0; i < tamanhoResul; ++i) {
         resul[i] = new int[metade];
-    }
+    }*/
 }
 
 void Vetor::preencherVetor()
 {
-    int i, j;
+    int i;
     for(i = 0; i < this->tamanho; i++)
     {
         this->v[i] = rand() % 1001;
     }
 
-    for(i = 0; i < this->tamanhoResul; i++)
-    {
-        for(j = 0; j < this->metade; j++)
-        {
-            this->resul[i][j] = 0;
-        }
-    }
+    //for(i = 0; i < this->tamanhoResul; i++)
+    //{
+    //    for(j = 0; j < this->metade; j++)
+    //    {
+    //        this->resul[i][j] = 0;
+    //    }
+    //}
 }
 
 void Vetor::imprimirVetor()
 {
-    int i, j;
+    int i;
 
     cout << "\nVetor inicial:" << endl;
     for(i = 0; i < this->tamanho; i++)
@@ -50,27 +48,41 @@ void Vetor::imprimirVetor()
         cout << this->v[i] <<  "\t";
     }
 
-    cout << "\n\nResultado:" << endl;
-    for(i = 0; i < this->tamanhoResul; i++)
-    {
-        cout << "" << endl;
-        for(j = 0; j < this->metade; j++){
-            cout << this->resul[i][j] <<  "\t";
-        }
-    }
+    //cout << "\n\nResultado:" << endl;
+    //for(i = 0; i < this->tamanhoResul; i++)
+    //{
+    //    cout << "" << endl;
+    //    for(j = 0; j < this->metade; j++){
+    //        cout << this->resul[i][j] <<  "\t";
+    //    }
+    //}
     cout << "\n\n";
 }
 
-void Vetor::gerarCombinacoes(int i, int tid)
+void Vetor::combinacao(int arr[], int data[], int start, int end, int index, int r)
 {
-    int j;
-    this->resul[linhaResul++][colunaResul++] = this->v[i];
-    for(j = i + 1; j < this->metade; j++)
-    {
-        cout << "Thread #" << tid << " executando na posicao #" << j << "!"<< endl;
-        this->resul[linhaResul++][colunaResul++] = this->v[j];
-    }
-    //https://alunosonline.uol.com.br/matematica/combinacao.html
+  int i, j;
+
+  if (index == r)
+  {
+    for (j=0; j<r; j++)
+      printf("%d ", data[j]);
+    printf("\n");
+    return;
+  }
+
+  for (i=start; i<=end && end-i+1 >= r-index; i++)
+  {
+    data[index] = arr[i];
+    combinacao(arr, data, i+1, end, index+1, r);
+  }
+}
+
+void Vetor::gerarCombinacao(int arr[], int n, int r)
+{
+  int data[r];
+
+  combinacao(arr, data, 0, n-1, 0, r);
 }
 
 int Vetor::calcularTotalCombinacoes()
